@@ -1,0 +1,36 @@
+import random
+
+user_wins = 0
+computer_wins = 0
+opportunities = ["rock", "paper", "scissors"]
+computer_play = ""
+user_play = ""
+
+while True:
+    print("rock, paper, scissors or quit?")
+    user_play = input("Enter your choice: ").lower()
+    if user_play != "rock" and user_play != "paper" and user_play != "scissors" and user_play != "quit":
+        print("Invalid choice!")
+    else:
+        if user_play == "quit":
+            print("You have", user_wins, "wins")
+            print("Computer has", computer_wins, "wins")
+            break
+
+        computer_play = random.choice(opportunities)
+        print("Computer play is", computer_play)
+
+        if user_play == computer_play:
+            print("It's a draw!")
+        elif user_play == "rock" and computer_play == "paper":
+            print("You lost!")
+            computer_wins += 1
+        elif user_play == "paper" and computer_play == "scissors":
+            print("You lost!")
+            computer_wins += 1
+        elif user_play == "scissors" and computer_play == "rock":
+            print("You lost!")
+            computer_wins += 1
+        else:
+            print("You won!")
+            user_wins += 1
